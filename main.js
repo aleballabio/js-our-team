@@ -1,29 +1,79 @@
-/* Passaggi:
+const arrTeam = [
+    {
+        nome: "Wayne Barnett",
+        ruolo: "Founder & CEO",
+        Image: "img/wayne-barnett-founder-ceo.jpg"
 
-1: Array di oggetti con i membri del team
+    },
 
-2: Funzione dell'array per stampare la relativa card con for in di: 
-    Nome 
-    Ruolo
-    Foto.
+    {
+        nome: "Angela Caroll",
+        ruolo: "Chief Editor",
+        Image: "img/angela-caroll-chief-editor.jpg"
 
-    Funzione per le informazioni
-    1) Stampa del ciclo in un array vuoto
+    },
 
-2)  Ciclo While con arr.Team minore della lengh
+    {
+        nome: "Walter Gordon",
+        ruolo: "Office Manager",
+        Image: "img/walter-gordon-office-manager.jpg"
 
-    1: arr vuoto per le info
-    2: contatore e contatore++
-    3: funzione  gather  info come variabile in array  [contatore]
-    4: Funzione della creazione card con accesso agli elementi dell'array creato 0 1 2
+    },
 
-3: For in di card per stampare le informazioni su elementi div in creazione
+    {
+        nome: "Angela Lopez",
+        ruolo: "Social Media Manager",
+        Image: "img/angela-lopez-social-media-manager.jpg"
 
-    Funzione creazione Card con indice array
+    },
 
-    1: Creazione element Div con classe team card
-    2: altro element div con classe card img e aggiunta con append
-    3: creazione element con img e attributo in src con funzione per aggiunta immagini
-    4: Append su Card Image
-    5: Creazione div e card-text
-    6: Append del contenuto in card text
+    {
+        nome: "Scott Estrada",
+        ruolo: "Developer",
+        Image: "img/scott-estrada-developer.jpg"
+
+    },
+
+    {
+        nome: "Barbara Ramos",
+        ruolo: "Graphic Designer",
+        Image: "img/barbara-ramos-graphic-designer.jpg"
+
+    }
+]
+
+for (let times = 0; times < arrTeam.length; times++) {
+    const arrMember = GetDataMember(arrTeam[times]);
+    console.log(arrMember);
+    const teamContainer = GetCardCreation(arrMember[0], arrMember[1], arrMember[2]);
+}
+
+
+// Data Extraction
+function GetDataMember(member) {
+    const arrInfo = []
+    for (let key in member) {
+        arrInfo.push(member[key]);
+    }
+    return arrInfo;
+}
+
+//Card Creation
+function GetCardCreation(name, role, image) {
+    let container = document.querySelector(".team-container");
+
+    let card = `<div class="team-card">
+            <div class="card-image">
+              <img
+                src="${image}"
+                alt="${name}"
+              />
+            </div>
+            <div class="card-text">
+              <h3>${name}</h3>
+              <p>${role}</p>
+            </div>
+          </div>`;
+
+    container.innerHTML += card;
+}
