@@ -43,8 +43,8 @@ const arrTeam = [
 ]
 
 for (let times = 0; times < arrTeam.length; times++) {
-    const arrMember = GetDataMember(arrTeam[times]);
-    const teamContainer = GetCardCreation(arrMember[0], arrMember[1], arrMember[2]);
+    const arrMember = arrTeam[times];
+    const teamContainer = GetCardCreation(arrMember.nome, arrMember.ruolo, arrMember.Image);
 }
 
 
