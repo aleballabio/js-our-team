@@ -47,16 +47,6 @@ for (let times = 0; times < arrTeam.length; times++) {
     const teamContainer = GetCardCreation(arrMember.nome, arrMember.ruolo, arrMember.Image);
 }
 
-
-// Data Extraction
-function GetDataMember(member) {
-    const arrInfo = []
-    for (let key in member) {
-        arrInfo.push(member[key]);
-    }
-    return arrInfo;
-}
-
 //Card Creation
 function GetCardCreation(name, role, image) {
     let container = document.querySelector(".team-container");
